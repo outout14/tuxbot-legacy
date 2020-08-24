@@ -34,7 +34,8 @@ class Identity(commands.Cog):
         """Cartes d'identité"""
 
         if ctx.invoked_subcommand is None:
-            text = open('texts/ci-info.md').read()
+            with open('texts/ci-info.md') as f:
+                read_data = f.read()
             em = discord.Embed(
                 title='Commandes de carte d\'identité de TuxBot', description=text, colour=0x89C4F9)
             await ctx.send(embed=em)
