@@ -45,7 +45,7 @@ class Identity(commands.Cog):
         self.conn = db.connect_to_db(self)
         self.cursor = self.conn.cursor()
 
-        if args == None:
+        if args is None:
             user = get_user(ctx.message, ctx.author.name)
         else:
             user = get_user(ctx.message, args)
