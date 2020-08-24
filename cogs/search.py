@@ -96,7 +96,7 @@ class Search(commands.Cog):
                    reaction.message.id == msg.id
 
         async def waiter(future: asyncio.Future):
-            reaction, user = await self.bot.wait_for('reaction_add',
+            reaction, _ = await self.bot.wait_for('reaction_add',
                                                      check=check)
             future.set_result(reaction.emoji)
 

@@ -128,7 +128,7 @@ class TuxBot(commands.Bot):
         """Repeats a command a specified number of times."""
         msg = copy.copy(ctx.message)
         msg.content = command
-        for i in range(times):
+        for _ in range(times):
             await self.process_commands(msg)
 
 

@@ -27,7 +27,7 @@ class Vocal(commands.Cog):
                                   "-i", file),
                                  stdout=subprocess.PIPE,
                                  stderr=subprocess.PIPE)
-        output, err = popen.communicate()
+        output, _ = popen.communicate()
         match = re.search(r"[-+]?\d*\.\d+|\d+", str(output))
         return float(match.group())
 

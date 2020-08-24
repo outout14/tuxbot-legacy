@@ -96,7 +96,7 @@ class ATC(commands.Cog):
                    reaction.message.id == poll_msg.id
 
         async def waiter(future: asyncio.Future):
-            reaction, user = await self.bot.wait_for('reaction_add',
+            reaction, _ = await self.bot.wait_for('reaction_add',
                                                      check=check)
 
             future.set_result(emojis.index(reaction.emoji))

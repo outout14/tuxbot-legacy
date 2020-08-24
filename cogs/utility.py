@@ -235,20 +235,20 @@ class Utility(commands.Cog):
             try:
                 ipaddress = socket.getaddrinfo(
                     ipaddress, None, socket.AF_INET6)[1][4][0]
-            except Exception as e:
+            except:
                 await ctx.send("Erreur, cette adresse n'est pas disponible en IPv6.")
                 return
         elif(iptype == "ipv4" or iptype == "v4" or iptype == "-4"):
             try:
                 ipaddress = socket.getaddrinfo(
                     ipaddress, None, socket.AF_INET)[1][4][0]
-            except Exception as e:
+            except:
                 await ctx.send("Erreur, cette adresse n'est pas disponible en IPv4.")
                 return
         else:
             try:
                 ipaddress = socket.getaddrinfo(ipaddress, None)[1][4][0]
-            except Exception as e:
+            except:
                 await ctx.send("Erreur, cette adresse n'est pas disponible.")
                 return
 
