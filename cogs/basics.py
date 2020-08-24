@@ -17,12 +17,14 @@ class Basics(commands.Cog):
     async def ping(self, ctx):
         ping_res = str(subprocess.Popen(["/bin/ping", "-c1", "discord.com"],
                                         stdout=subprocess.PIPE).stdout.read())
-<<<<<<< HEAD
+
+
+<< << << < HEAD
         result = self.bot.latency * 1000
-=======
+== == == =
         formated_res = [item for item in ping_res.split() if 'time=' in item]
         result = self.bot.latency * 1000  # str(formated_res[0])[5:]
->>>>>>> 53bdc1641065fcf895b52679e0b453f067331b71
+>>>>>> > 53bdc1641065fcf895b52679e0b453f067331b71
 
         if float(result) >= 200:
             em = discord.Embed(title="Ping : " + str(result) + "ms",
