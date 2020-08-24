@@ -315,7 +315,7 @@ class Identity(commands.Cog):
 
             await ctx.send(f"{ctx.author.mention} ta clé d'édition t'a été envoyée en message privé")
 
-        except Exception as e:
+        except:
             await ctx.send(f"{ctx.author.mention}, je ne peux pas t'envoyer de message privé :(. Penses à autoriser les messages privés provenant des membres du serveur pour que je puisse te donner ta clef d'édition")
 
     """--------------------------------------------------------------------------------------------------------------------------"""

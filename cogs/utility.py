@@ -275,7 +275,7 @@ class Utility(commands.Cog):
                 access_token = k.read().replace("\n", "")
             handler = ipinfoio.getHandler(access_token)
             details = handler.getDetails(ipaddress)
-        except Exception as e:
+        except Exception:
             api_result = False
 
         try:
