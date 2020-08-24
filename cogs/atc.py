@@ -98,7 +98,7 @@ class ATC(commands.Cog):
 
         async def waiter(future: asyncio.Future):
             reaction, _ = await self.bot.wait_for('reaction_add',
-                                                     check=check)
+                                                  check=check)
 
             future.set_result(emojis.index(reaction.emoji))
 
