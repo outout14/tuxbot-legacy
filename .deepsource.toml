@@ -1,5 +1,9 @@
 version = 1
 
+exclude_patterns = [
+    "cogs/utils/**",
+]
+
 [[analyzers]]
 name = "python"
 enabled = true
