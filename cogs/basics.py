@@ -15,12 +15,8 @@ class Basics(commands.Cog):
 
     @commands.command()
     async def ping(self, ctx):
-        ping_res = str(subprocess.Popen(["/bin/ping", "-c1", "discord.com"],
-                                        stdout=subprocess.PIPE).stdout.read())
-
-
         result = self.bot.latency * 1000
-        
+
         if float(result) >= 200:
             em = discord.Embed(title="Ping : " + str(result) + "ms",
                                description="... c'est quoi ce ping !",
