@@ -23,7 +23,7 @@ class Role(commands.Cog):
 
         if ctx.invoked_subcommand is None:
             with open('texts/roles.md') as f:
-                    text = f.read()
+                text = f.read()
             em = discord.Embed(title='Gestionnaires de rôles',
                                description=text, colour=0x89C4F9)
             await ctx.send(embed=em)
