@@ -64,7 +64,7 @@ class Sondage(commands.Cog):
                         results[reaction.emoji] = reaction.count - 1
                 end_msg = "Le sondage est términé. Les résultats sont:\n\n"
 
-                for result in results:
+                for result in results.items():
                     end_msg += "{} {} - {} votes\n". \
                         format(result,
                                options[emoji.index(result)+1],
