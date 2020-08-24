@@ -20,8 +20,9 @@ import config
 from cogs.utils import checks
 
 if sys.version_info[1] < 7 or sys.version_info[0] < 3:
-    print(f"{colors.text_colors.RED}[ERROR] Python 3.7 or + is required.{colors.ENDC}")
-    exit()
+    print(
+        f"{colors.text_colors.RED}[ERROR] Python 3.7 or + is required.{colors.ENDC}")
+    sys.exit()
 
 l_extensions = (
     'cogs.admin',
@@ -135,7 +136,7 @@ if __name__ == '__main__':
     if os.path.exists('config.py') is not True:
         print(f"{colors.text_colors.RED}"
               f"Veuillez créer le fichier config.py{colors.ENDC}")
-        exit()
+        sys.exit()
 
     tuxbot = TuxBot()
     tuxbot.run()
