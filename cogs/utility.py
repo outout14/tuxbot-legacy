@@ -231,14 +231,14 @@ class Utility(commands.Cog):
                 ipaddress = ipaddress[:-1]
             ipaddress = ipaddress.split("https://")[1]
 
-        if(iptype == "ipv6" or iptype == "v6" or iptype == "-6"):
+        if(iptype in ["ipv6","v6","-6"]):
             try:
                 ipaddress = socket.getaddrinfo(
                     ipaddress, None, socket.AF_INET6)[1][4][0]
             except:
                 await ctx.send("Erreur, cette adresse n'est pas disponible en IPv6.")
                 return
-        elif(iptype == "ipv4" or iptype == "v4" or iptype == "-4"):
+        elif(iptype in ["ipv4","v4","-4"]):
             try:
                 ipaddress = socket.getaddrinfo(
                     ipaddress, None, socket.AF_INET)[1][4][0]
