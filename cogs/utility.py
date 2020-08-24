@@ -16,7 +16,7 @@ from ipwhois.asn import IPASN
 import ipwhois
 
 import discord
-import requests, re
+import re
 from discord.ext import commands
 import socket
 
