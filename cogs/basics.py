@@ -38,7 +38,8 @@ class Basics(commands.Cog):
     @commands.command()
     async def info(self, ctx):
         """Affiches des informations sur le bot"""
-        text = open('texts/info.md').read()
+        with open('texts/info.md') as f:
+            text = f.read()
         os_info = str(platform.system()) + " / " + str(platform.release())
         em = discord.Embed(title='Informations sur TuxBot',
                            description=text.format(os_info,
@@ -56,7 +57,8 @@ class Basics(commands.Cog):
     async def help(self, ctx, page: int = 1):
         """Affiches l'aide du bot"""
         page = int(page) if 0 < int(page) < 5 else 1
-        text = open('texts/help.md').read().split("[split]")
+        with open('texts/help.md') as f:
+            text = f.read()
         em = discord.Embed(title='Commandes de TuxBot', description=text[page - 1],
                            colour=0x89C4F9)
         await ctx.send(content=f"page {page}/{len(text)}", embed=em)

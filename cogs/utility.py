@@ -32,7 +32,8 @@ class Utility(commands.Cog):
         """Display hour in a country"""
 
         if ctx.invoked_subcommand is None:
-            text = open('texts/clocks.md').read()
+            with open('texts/clock.md') as f:
+                text = f.read()
             em = discord.Embed(title='Liste des Horloges',
                                description=text, colour=0xEEEEEE)
             await ctx.send(embed=em)

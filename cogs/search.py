@@ -17,7 +17,8 @@ class Search(commands.Cog):
     async def _search(self, ctx):
         """Rechercher sur le world wide web"""
         if ctx.invoked_subcommand is None:
-            text = open('texts/search.md').read()
+            with open('texts/search.md') as f:
+                text = f.read()
             em = discord.Embed(title='Commandes de search TuxBot',
                                description=text,
                                colour=0x89C4F9)

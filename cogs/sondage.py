@@ -88,7 +88,8 @@ class Sondage(commands.Cog):
             await ctx.send("please use `@tuxbot poll` (this is rewrite version in beta")
             await ctx.message.delete()
 
-            text = open('texts/rpoll.md').read()
+            with open('texts/rpoll.md') as f:
+                text = f.read()
             em = discord.Embed(title='Aide sur le sondage',
                                description=text,
                                colour=0xEEEEEE)
