@@ -1,6 +1,5 @@
 import platform
 import socket
-import subprocess
 
 import discord
 from discord.ext import commands
