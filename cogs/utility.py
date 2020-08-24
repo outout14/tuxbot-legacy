@@ -436,7 +436,7 @@ class Utility(commands.Cog):
             notEmptyField(embed, name="Politique de Peering :",
                           value=f"[{asinfo['policy_general']}]({asinfo['policy_url']})")
             notEmptyField(embed, name="Protocoles supportés :", value=asproto)
-            embed.set_footer(text=f"https://www.peeringdb.com/")
+            embed.set_footer(text="https://www.peeringdb.com/")
             await ctx.send(embed=embed)
             await loadingmsg.delete()
         except IndexError:

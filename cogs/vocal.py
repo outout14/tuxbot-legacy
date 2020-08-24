@@ -40,8 +40,8 @@ class Vocal(commands.Cog):
                 and (
                     ctx.author.id == self.author.id
                     or ctx.message.channel.permissions_for(
-                            ctx.message.author
-                        ).administrator is True
+                        ctx.message.author
+                    ).administrator is True
                 ) \
                 and self.playing is True:
 
@@ -68,7 +68,8 @@ class Vocal(commands.Cog):
 
             if lang:
                 choice_lang = (lang[0])[5:]
-                message = f"{user.display_name} à dit: {message.strip(lang[0])}" if len(ctx.author.voice.channel.members) >= 4 else message.strip(lang[0])
+                message = f"{user.display_name} à dit: {message.strip(lang[0])}" if len(
+                    ctx.author.voice.channel.members) >= 4 else message.strip(lang[0])
 
                 try:
                     tts = gTTS(
@@ -81,7 +82,8 @@ class Vocal(commands.Cog):
                     await ctx.send("La langue n'est pas supportée,"
                                    " le francais a donc été choisi")
             else:
-                message = f"{user.display_name} à dit: {message}" if len(ctx.author.voice.channel.members) >= 4 else message
+                message = f"{user.display_name} à dit: {message}" if len(
+                    ctx.author.voice.channel.members) >= 4 else message
                 tts = gTTS(text=message,
                            lang="fr")
 

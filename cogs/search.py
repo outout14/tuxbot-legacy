@@ -83,7 +83,7 @@ class Search(commands.Cog):
             mmssgg = mmssgg + "**{}**: {} \n".format(str(nbmr), value)
 
         em = discord.Embed(title='Résultats de : ' + args,
-                           description = mmssgg,
+                           description=mmssgg,
                            colour=0x4ECDC4)
         em.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/commons/"
                              "2/26/Paullusmagnus-logo_%28large%29.png")
@@ -93,7 +93,7 @@ class Search(commands.Cog):
 
         def check(reaction, user):
             return user == ctx.author and reaction.emoji in sending and \
-                   reaction.message.id == msg.id
+                reaction.message.id == msg.id
 
         async def waiter(future: asyncio.Future):
             reaction, _ = await self.bot.wait_for('reaction_add',
@@ -124,7 +124,7 @@ class Search(commands.Cog):
             wp = wikipedia.page(args_)
             wp_contenu = wp.summary[:200] + "..."
             em = discord.Embed(title='Wikipedia : ' + wp.title,
-                               description = "{} \n_Lien_ : {} ".format(
+                               description="{} \n_Lien_ : {} ".format(
                                    wp_contenu, wp.url),
                                colour=0x9B59B6)
             em.set_author(name="Wikipedia",
@@ -132,9 +132,9 @@ class Search(commands.Cog):
                           icon_url='https://upload.wikimedia.org/wikipedia/'
                                    'commons/2/26/Paullusmagnus-logo_%28large'
                                    '%29.png')
-            em.set_thumbnail(url = "https://upload.wikimedia.org/wikipedia/"
-                                   "commons/2/26/Paullusmagnus-logo_%28large"
-                                   "%29.png")
+            em.set_thumbnail(url="https://upload.wikimedia.org/wikipedia/"
+                             "commons/2/26/Paullusmagnus-logo_%28large"
+                             "%29.png")
             em.set_footer(text="Merci à eux de nous fournir une encyclopédie "
                                "libre !")
             await wait.delete()

@@ -38,4 +38,3 @@ class Monitoring(commands.Cog):
 
 def setup(bot: TuxBot):
     bot.add_cog(Monitoring())
-

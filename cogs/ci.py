@@ -276,7 +276,7 @@ class Identity(commands.Cog):
         result = self.cursor.fetchone()
 
         if not result:
-            return await ctx.send(f"Déja enregistre ta carte d'identité avant de l'éditer u_u (après c'est pas logique...)")
+            return await ctx.send("Déja enregistre ta carte d'identité avant de l'éditer u_u (après c'est pas logique...)")
 
         dm = await ctx.author.create_dm()
 
@@ -309,7 +309,7 @@ class Identity(commands.Cog):
             embed = discord.Embed(title="Clé d'édition pour tuxweb",
                                   description=f"Voici ta clé d'édition, vas sur [https://tuxbot.gnous.eu/fr/users/{user_id}](https://tuxbot.gnous.eu/fr/users/{user_id}) puis cliques sur `editer` et entre la clé afin de pouvoir modifier ta ci", colour=0x89C4F9)
             embed.set_footer(
-                text=f"Cette clé sera valide durant les 10 prochaines minutes, ne la communiques à personne !")
+                text="Cette clé sera valide durant les 10 prochaines minutes, ne la communiques à personne !")
             await dm.send(embed=embed)
             await dm.send(token)
 

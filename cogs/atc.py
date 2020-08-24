@@ -31,7 +31,8 @@ class ATC(commands.Cog):
                 await ctx.send("Veuillez specifier un icao")
                 return "quit"
         if icao == "info":
-            em = discord.Embed(title=f"Infos sur les services utilisés par {self.bot.config.prefix[0]}atc")
+            em = discord.Embed(
+                title=f"Infos sur les services utilisés par {self.bot.config.prefix[0]}atc")
             em.add_field(name="Service pour les communications:",
                          value="[liveatc.net](https://www.liveatc.net/)",
                          inline=False)
@@ -93,7 +94,7 @@ class ATC(commands.Cog):
 
         def check(reaction, user):
             return user == ctx.author and reaction.emoji in to_react and \
-                   reaction.message.id == poll_msg.id
+                reaction.message.id == poll_msg.id
 
         async def waiter(future: asyncio.Future):
             reaction, _ = await self.bot.wait_for('reaction_add',

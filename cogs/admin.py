@@ -88,8 +88,8 @@ class Admin(commands.Cog):
         try:
             await ctx.message.delete()
         except Exception:
-                print(f"Impossible de supprimer le message "
-                      f"\"{str(ctx.message.content)}\"")
+            print(f"Impossible de supprimer le message "
+                  f"\"{str(ctx.message.content)}\"")
         if number < 1000:
             try:
                 await ctx.message.channel.purge(limit=number)
@@ -136,7 +136,8 @@ class Admin(commands.Cog):
             try:
                 await chan.send(tosay)
             except Exception:
-                print(f"Impossible d'envoyer le message dans {str(channel_id)}")
+                print(
+                    f"Impossible d'envoyer le message dans {str(channel_id)}")
         except Exception as e:  # TODO : A virer dans l'event on_error
             await ctx.send(f':sob: Une erreur est survenue : \n'
                            f' {type(e).__name__}: {e}')
