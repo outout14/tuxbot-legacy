@@ -318,7 +318,7 @@ class Utility(commands.Cog):
     """---------------------------------------------------------------------"""
     @commands.command(name='dig', pass_context=True)
     async def _dig(self, ctx, domain, querytype="abc", dnssec="no"):
-        if not querytype in ['A', 'AAAA', 'CNAME', 'NS', 'DS', 'DNSKEY', 'SOA', 'TXT', 'PTR', 'MX']:
+        if querytype not in ['A', 'AAAA', 'CNAME', 'NS', 'DS', 'DNSKEY', 'SOA', 'TXT', 'PTR', 'MX']:
             await ctx.send("Requêtes supportées : A, AAAA, CNAME, NS, DS, DNSKEY, SOA, TXT, PTR, MX")
             return
 
