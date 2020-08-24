@@ -20,6 +20,7 @@ import re
 from discord.ext import commands
 import socket
 
+
 class Utility(commands.Cog):
     """Commandes utilitaires."""
 
@@ -32,7 +33,8 @@ class Utility(commands.Cog):
 
         if ctx.invoked_subcommand is None:
             text = open('texts/clocks.md').read()
-            em = discord.Embed(title='Liste des Horloges', description=text, colour=0xEEEEEE)
+            em = discord.Embed(title='Liste des Horloges',
+                               description=text, colour=0xEEEEEE)
             await ctx.send(embed=em)
 
     @clock.command(name="montréal", aliases=["mtl", "montreal"], pass_context=True)
@@ -48,8 +50,9 @@ class Utility(commands.Cog):
         form = '%H heures %M'
         tt = utc.strftime(form)
 
-        em = discord.Embed(title='Heure à Montréal', description=f"A [Montréal]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
-        em.set_thumbnail(url = img)
+        em = discord.Embed(title='Heure à Montréal',
+                           description=f"A [Montréal]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
+        em.set_thumbnail(url=img)
         await ctx.send(embed=em)
 
     @clock.command(name="vancouver", pass_context=True)
@@ -65,11 +68,12 @@ class Utility(commands.Cog):
         form = '%H heures %M'
         tt = utc.strftime(form)
 
-        em = discord.Embed(title='Heure à Vancouver', description=f"A [Vancouver]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
-        em.set_thumbnail(url = img)
+        em = discord.Embed(title='Heure à Vancouver',
+                           description=f"A [Vancouver]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
+        em.set_thumbnail(url=img)
         await ctx.send(embed=em)
 
-    @clock.command(name="new-york",aliases=["ny", "n-y", "new york"], pass_context=True)
+    @clock.command(name="new-york", aliases=["ny", "n-y", "new york"], pass_context=True)
     async def clock_new_york(self, ctx):
         then = datetime.datetime.now(pytz.utc)
 
@@ -82,10 +86,11 @@ class Utility(commands.Cog):
         form = '%H heures %M'
         tt = utc.strftime(form)
 
-        em = discord.Embed(title='Heure à New York', description=f"A [str(New York]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
-        em.set_thumbnail(url = img)
+        em = discord.Embed(title='Heure à New York',
+                           description=f"A [str(New York]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
+        em.set_thumbnail(url=img)
         await ctx.send(embed=em)
-            
+
     @clock.command(name="la", aliases=["los-angeles", "losangeles", "l-a", "los angeles"], pass_context=True)
     async def clock_la(self, ctx):
         then = datetime.datetime.now(pytz.utc)
@@ -99,11 +104,12 @@ class Utility(commands.Cog):
         form = '%H heures %M'
         tt = utc.strftime(form)
 
-        em = discord.Embed(title='Heure à Los Angeles', description=f"A [Los Angeles]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
-        em.set_thumbnail(url = img)
+        em = discord.Embed(title='Heure à Los Angeles',
+                           description=f"A [Los Angeles]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
+        em.set_thumbnail(url=img)
         await ctx.send(embed=em)
-            
-    @clock.command(name="paris", aliases=["baguette"],pass_context=True)
+
+    @clock.command(name="paris", aliases=["baguette"], pass_context=True)
     async def clock_paris(self, ctx):
         then = datetime.datetime.now(pytz.utc)
 
@@ -116,10 +122,11 @@ class Utility(commands.Cog):
         form = '%H heures %M'
         tt = utc.strftime(form)
 
-        em = discord.Embed(title='Heure à Paris', description=f"A [Paris]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
-        em.set_thumbnail(url = img)
+        em = discord.Embed(
+            title='Heure à Paris', description=f"A [Paris]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
+        em.set_thumbnail(url=img)
         await ctx.send(embed=em)
-    
+
     @clock.command(name="berlin", pass_context=True)
     async def clock_berlin(self, ctx):
         then = datetime.datetime.now(pytz.utc)
@@ -133,10 +140,11 @@ class Utility(commands.Cog):
         form = '%H heures %M'
         tt = utc.strftime(form)
 
-        em = discord.Embed(title='Heure à Berlin', description=f"A [Berlin]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
-        em.set_thumbnail(url = img)
+        em = discord.Embed(
+            title='Heure à Berlin', description=f"A [Berlin]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
+        em.set_thumbnail(url=img)
         await ctx.send(embed=em)
-    
+
     @clock.command(name="berne", aliases=["zurich", "bern"], pass_context=True)
     async def clock_berne(self, ctx):
         then = datetime.datetime.now(pytz.utc)
@@ -150,10 +158,11 @@ class Utility(commands.Cog):
         form = '%H heures %M'
         tt = utc.strftime(form)
 
-        em = discord.Embed(title='Heure à Berne', description=f"A [Berne]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
-        em.set_thumbnail(url = img)
+        em = discord.Embed(
+            title='Heure à Berne', description=f"A [Berne]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
+        em.set_thumbnail(url=img)
         await ctx.send(embed=em)
-    
+
     @clock.command(name="tokyo", pass_context=True)
     async def clock_tokyo(self, ctx):
         then = datetime.datetime.now(pytz.utc)
@@ -167,10 +176,11 @@ class Utility(commands.Cog):
         form = '%H heures %M'
         tt = utc.strftime(form)
 
-        em = discord.Embed(title='Heure à Tokyo', description=f"A [Tokyo]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
-        em.set_thumbnail(url = img)
+        em = discord.Embed(
+            title='Heure à Tokyo', description=f"A [Tokyo]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
+        em.set_thumbnail(url=img)
         await ctx.send(embed=em)
-    
+
     @clock.command(name="moscou", aliases=["moscow", "moskova"], pass_context=True)
     async def clock_moscou(self, ctx):
         then = datetime.datetime.now(pytz.utc)
@@ -184,8 +194,9 @@ class Utility(commands.Cog):
         form = '%H heures %M'
         tt = utc.strftime(form)
 
-        em = discord.Embed(title='Heure à Moscou', description=f"A [Moscou]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
-        em.set_thumbnail(url = img)
+        em = discord.Embed(
+            title='Heure à Moscou', description=f"A [Moscou]({site}) {country}, Il est **{str(tt)}** ! \n {description} \n _source des images et du texte : [Wikimedia foundation](http://commons.wikimedia.org/)_", colour=0xEEEEEE)
+        em.set_thumbnail(url=img)
         await ctx.send(embed=em)
 
     """---------------------------------------------------------------------"""
@@ -196,12 +207,12 @@ class Utility(commands.Cog):
         with open('texts/ytb.json') as js:
             ytb = json.load(js)
 
-        clef = str(random.randint(0,12))
+        clef = str(random.randint(0, 12))
         chaine = ytb["{}".format(clef)]
 
-        embed = discord.Embed(title=chaine['name'], 
-            url=chaine['url'], 
-            description=f"**{chaine['name']}**, {chaine['desc']} \n[Je veux voir ça]({chaine['url']})")
+        embed = discord.Embed(title=chaine['name'],
+                              url=chaine['url'],
+                              description=f"**{chaine['name']}**, {chaine['desc']} \n[Je veux voir ça]({chaine['url']})")
         embed.set_thumbnail(url='https://outout.tech/tuxbot/yt.png')
         await ctx.send(embed=embed)
 
@@ -219,16 +230,18 @@ class Utility(commands.Cog):
             if ipaddress[-1:] == '/':
                 ipaddress = ipaddress[:-1]
             ipaddress = ipaddress.split("https://")[1]
-        
-        if(iptype=="ipv6" or iptype=="v6" or iptype=="-6"):
+
+        if(iptype == "ipv6" or iptype == "v6" or iptype == "-6"):
             try:
-                ipaddress = socket.getaddrinfo(ipaddress, None, socket.AF_INET6)[1][4][0]
+                ipaddress = socket.getaddrinfo(
+                    ipaddress, None, socket.AF_INET6)[1][4][0]
             except Exception as e:
                 await ctx.send("Erreur, cette adresse n'est pas disponible en IPv6.")
                 return
-        elif(iptype=="ipv4" or iptype=="v4" or iptype=="-4"):
+        elif(iptype == "ipv4" or iptype == "v4" or iptype == "-4"):
             try:
-                ipaddress = socket.getaddrinfo(ipaddress, None, socket.AF_INET)[1][4][0]
+                ipaddress = socket.getaddrinfo(
+                    ipaddress, None, socket.AF_INET)[1][4][0]
             except Exception as e:
                 await ctx.send("Erreur, cette adresse n'est pas disponible en IPv4.")
                 return
@@ -245,7 +258,7 @@ class Utility(commands.Cog):
             net = Net(ipaddress)
             obj = IPASN(net)
             ipinfo = obj.lookup()
-        except ipwhois.exceptions.IPDefinedError: 
+        except ipwhois.exceptions.IPDefinedError:
             await ctx.send("Cette IP est reservée à un usage local selon la RFC 1918. Impossible d'avoir des informations supplémentaires à son propos.")
             await iploading.delete()
             return
@@ -266,28 +279,36 @@ class Utility(commands.Cog):
             api_result = False
 
         try:
-            embed = discord.Embed(title=f"Informations pour ``{realipaddress} ({ipaddress})``", color=0x5858d7)
-            
+            embed = discord.Embed(
+                title=f"Informations pour ``{realipaddress} ({ipaddress})``", color=0x5858d7)
+
             if(api_result):
                 asn = details.org.split(" ")[0]
-                embed.add_field(name="Appartient à :", value=f"[{details.org}](https://bgp.he.net/{asn})")
+                embed.add_field(
+                    name="Appartient à :", value=f"[{details.org}](https://bgp.he.net/{asn})")
             else:
-                embed.add_field(name="Appartient à :", value=f"{ipinfo['asn_description']} ([AS{ipinfo['asn']}](https://bgp.he.net/{ipinfo['asn']}))", inline = False)
-            
-            embed.add_field(name="RIR :", value=f"{ipinfo['asn_registry']}", inline = True)
-            
+                embed.add_field(
+                    name="Appartient à :", value=f"{ipinfo['asn_description']} ([AS{ipinfo['asn']}](https://bgp.he.net/{ipinfo['asn']}))", inline=False)
+
+            embed.add_field(
+                name="RIR :", value=f"{ipinfo['asn_registry']}", inline=True)
+
             if(api_result):
-                embed.add_field(name="Région :", value=f"{details.city} - {details.region} ({details.country})")
+                embed.add_field(
+                    name="Région :", value=f"{details.city} - {details.region} ({details.country})")
             else:
-                embed.add_field(name="Région :", value=f"{ipinfo['asn_country_code']}")
+                embed.add_field(name="Région :",
+                                value=f"{ipinfo['asn_country_code']}")
             embed.add_field(name="Nom de l'hôte :", value=f"{iphostname}")
 
-            # Adding country flag 
+            # Adding country flag
             if(api_result):
-                embed.set_thumbnail(url=f"https://www.countryflags.io/{details.country}/shiny/64.png")
+                embed.set_thumbnail(
+                    url=f"https://www.countryflags.io/{details.country}/shiny/64.png")
             else:
-                embed.set_thumbnail(url=f"https://www.countryflags.io/{ipinfo['asn_country_code']}/shiny/64.png")
-            
+                embed.set_thumbnail(
+                    url=f"https://www.countryflags.io/{ipinfo['asn_country_code']}/shiny/64.png")
+
             await ctx.send(embed=embed)
         except:
             await ctx.send(content=f"Erreur, impossible d'avoir des informations sur l'adresse IP ``{realipaddress}``")
@@ -295,8 +316,8 @@ class Utility(commands.Cog):
 
     """---------------------------------------------------------------------"""
     @commands.command(name='dig', pass_context=True)
-    async def _dig(self, ctx, domain, querytype="abc", dnssec="no"): 
-        if not querytype in ['A', 'AAAA', 'CNAME', 'NS', 'DS', 'DNSKEY', 'SOA', 'TXT', 'PTR', 'MX']: 
+    async def _dig(self, ctx, domain, querytype="abc", dnssec="no"):
+        if not querytype in ['A', 'AAAA', 'CNAME', 'NS', 'DS', 'DNSKEY', 'SOA', 'TXT', 'PTR', 'MX']:
             await ctx.send("Requêtes supportées : A, AAAA, CNAME, NS, DS, DNSKEY, SOA, TXT, PTR, MX")
             return
 
@@ -307,7 +328,7 @@ class Utility(commands.Cog):
                     '80.67.169.12',
                 ]
             )
-        else: 
+        else:
             resolver = pydig.Resolver(
                 nameservers=[
                     '80.67.169.40',
@@ -319,23 +340,23 @@ class Utility(commands.Cog):
             )
 
         resquery = resolver.query(domain, querytype)
-        embed = discord.Embed(title=f"Requête DIG sur {domain} pour une entrée {querytype}", color=0x5858d7)
-        
+        embed = discord.Embed(
+            title=f"Requête DIG sur {domain} pour une entrée {querytype}", color=0x5858d7)
+
         champ_id = 1
         for champ in resquery:
             embed.add_field(name=f"Champ {champ_id} :", value=champ)
-            champ_id = champ_id + 1 
+            champ_id = champ_id + 1
 
-        if champ_id == 1: 
+        if champ_id == 1:
             embed.add_field(name="Ooops", value="Pas de résultat")
         await ctx.send(embed=embed)
-
 
     """---------------------------------------------------------------------"""
     @commands.command(name='getheaders')
     async def _getheaders(self, ctx: commands.Context, addr: str):
         if (addr.startswith('http') or addr.startswith('ftp')) is not True:
-           addr = f"http://{addr}"
+            addr = f"http://{addr}"
 
         await ctx.trigger_typing()
 
@@ -360,7 +381,6 @@ class Utility(commands.Cog):
                 f"Cannot connect to host {addr}"
             )
 
-
     """---------------------------------------------------------------------"""
     @commands.command(name='peeringdb', pass_context=True)
     async def _peeringdb(self, ctx, *, asn):
@@ -374,11 +394,13 @@ class Utility(commands.Cog):
 
         """Getting the ASN id in the peeringdb database"""
         try:
-            asnid = urllib.request.urlopen("https://www.peeringdb.com/api/as_set/" + asn)
+            asnid = urllib.request.urlopen(
+                "https://www.peeringdb.com/api/as_set/" + asn)
             asnid = json.loads(asnid.read().decode())
             pdbid = asnid["data"][0][asn]
 
-            asinfo = urllib.request.urlopen("https://www.peeringdb.com/api/net?irr_as_set=" + pdbid)
+            asinfo = urllib.request.urlopen(
+                "https://www.peeringdb.com/api/net?irr_as_set=" + pdbid)
 
             asinfo = json.loads(asinfo.read().decode())["data"]
 
@@ -395,17 +417,24 @@ class Utility(commands.Cog):
                 asproto = asproto + "Multicast "
             if(asinfo["info_never_via_route_servers"]):
                 asproto = asproto + "Never via Route servers"
-            
-            embed = discord.Embed(title=f"Informations pour {asinfo['name']} ``AS{asn}``", color=0x5858d7)
+
+            embed = discord.Embed(
+                title=f"Informations pour {asinfo['name']} ``AS{asn}``", color=0x5858d7)
             notEmptyField(embed, name="Nom :", value=asinfo['name'])
             notEmptyField(embed, name="Aka :", value=asinfo['aka'])
             notEmptyField(embed, name="Site :", value=asinfo['website'])
-            notEmptyField(embed, name="Looking Glass :", value=asinfo['looking_glass'])
-            notEmptyField(embed, name="Traffic :", value=asinfo['info_traffic'])
-            notEmptyField(embed, name="Ratio du traffic :", value=asinfo['info_ratio'])
-            notEmptyField(embed, name="Prefixes IPv4 :", value=asinfo['info_prefixes4'])
-            notEmptyField(embed, name="Prefixes IPv6 :", value=asinfo['info_prefixes6'])
-            notEmptyField(embed, name="Politique de Peering :", value=f"[{asinfo['policy_general']}]({asinfo['policy_url']})")
+            notEmptyField(embed, name="Looking Glass :",
+                          value=asinfo['looking_glass'])
+            notEmptyField(embed, name="Traffic :",
+                          value=asinfo['info_traffic'])
+            notEmptyField(embed, name="Ratio du traffic :",
+                          value=asinfo['info_ratio'])
+            notEmptyField(embed, name="Prefixes IPv4 :",
+                          value=asinfo['info_prefixes4'])
+            notEmptyField(embed, name="Prefixes IPv6 :",
+                          value=asinfo['info_prefixes6'])
+            notEmptyField(embed, name="Politique de Peering :",
+                          value=f"[{asinfo['policy_general']}]({asinfo['policy_url']})")
             notEmptyField(embed, name="Protocoles supportés :", value=asproto)
             embed.set_footer(text=f"https://www.peeringdb.com/")
             await ctx.send(embed=embed)
@@ -422,59 +451,59 @@ class Utility(commands.Cog):
     async def _shroute(self, ctx, srv, ipaddress):
         """Show as path graph to an IP via data from a Route Server using graphviz"""
 
-        if not srv in ["opentransit", 'he', 'att', "oregonuniv", "warian", 'csaholdigs', 'iamageeknz']: 
+        if not srv in ["opentransit", 'he', 'att', "oregonuniv", "warian", 'csaholdigs', 'iamageeknz']:
             await ctx.send("Requêtes supportées : opentransit (Orange), he (Huricanne Electric), att (AT&T), oregonuniv, warian, csaholdigs, iamageeknz")
             return
 
-        #List of RS 
-        if srv == "opentransit": 
+        # List of RS
+        if srv == "opentransit":
             host = "route-server.opentransit.net"
             user = "rviews"
             password = "Rviews"
             lg_asn = "5511"
             cmd = "show bgp {}"
-        elif srv == "oregonuniv": 
+        elif srv == "oregonuniv":
             host = "route-views.routeviews.org"
             user = "rviews"
             password = "none"
             lg_asn = "3582"
             cmd = "show bgp {}"
-        elif srv == "warian": 
+        elif srv == "warian":
             host = "route-server.warian.net"
             user = "none"
             password = "rviews"
             lg_asn = "56911"
             cmd = "show bgp ipv4 unicast {}"
-        elif srv == "csaholdigs": #Blacklist sometime
+        elif srv == "csaholdigs":  # Blacklist sometime
             host = "route-views.sg.routeviews.org"
             user = "none"
             password = "none"
             lg_asn = "45494"
             cmd = "show bgp ipv4 unicast {}"
-        elif srv == "he": #Blacklist sometime
+        elif srv == "he":  # Blacklist sometime
             host = "route-server.he.net"
             user = "none"
             password = "none"
             lg_asn = "6939"
             cmd = "show bgp ipv4 unicast {}"
-        elif srv == "iamageeknz": #Blacklist sometime
+        elif srv == "iamageeknz":  # Blacklist sometime
             host = "rs.as45186.net"
             user = "none"
             password = "none"
             lg_asn = "45186"
-            cmd = "show bgp ipv4 unicast {}"    
-        elif srv == "att": 
+            cmd = "show bgp ipv4 unicast {}"
+        elif srv == "att":
             host = "route-server.ip.att.net"
             user = "rviews"
             password = "rviews"
             lg_asn = "7018"
-            cmd = "show route {}" 
+            cmd = "show route {}"
 
         ip = ipaddress
         await ctx.send("Connexion en cours au route server...")
         tn = telnetlib.Telnet(host)
 
-        #Login to the RS via Telnet 
+        # Login to the RS via Telnet
         if user != "none":
             if(srv == "att"):
                 tn.read_until("login: ".encode())
@@ -487,13 +516,13 @@ class Utility(commands.Cog):
             if(srv == "att"):
                 tn.read_until("Password:".encode())
                 tn.write((password + "\n").encode())
-            else: 
+            else:
                 tn.read_until("Password: ".encode())
                 tn.write((password + "\n").encode())
 
         await ctx.send("Connecté ! Récupération des données...")
 
-        #Sending show route via telnet to the RS
+        # Sending show route via telnet to the RS
         tn.write((cmd + "\n").format(ip).encode())
         tn.write(chr(25).encode())
         tn.write(chr(25).encode())
@@ -503,60 +532,63 @@ class Utility(commands.Cog):
 
         await ctx.send("Données récupérées ! Traitement en cours")
 
-        #Parsing data
+        # Parsing data
         data = tn.read_all().decode("utf-8")
         paths = {}
 
-        #Parsing as paths
+        # Parsing as paths
         paths["as_list"] = re.findall(r"  ([0-9][0-9 ]+),", data)
         if(paths["as_list"] == []):
             paths["as_list"] = re.findall(r"  ([0-9][0-9 ]+)[^0-9.]", data)
 
-        #Custom parsing for AT&T 
+        # Custom parsing for AT&T
         if(srv == "att"):
-            paths["as_list"] = re.findall(r"(?<=AS path: 7018 )[0-9][0-9 ]+[^ I]", data)
+            paths["as_list"] = re.findall(
+                r"(?<=AS path: 7018 )[0-9][0-9 ]+[^ I]", data)
 
-        #Graphviz diagram
-        g = Digraph('G', filename='bgpgraph', format='png', graph_attr={'rankdir':'LR', 'concentrate': 'true'})
+        # Graphviz diagram
+        g = Digraph('G', filename='bgpgraph', format='png', graph_attr={
+                    'rankdir': 'LR', 'concentrate': 'true'})
 
-        #Diagram paths generation
+        # Diagram paths generation
         as_path_count = 0
-        for as_path in paths['as_list']: 
+        for as_path in paths['as_list']:
             as_path = as_path.split(" ")
             as_path.reverse()
             original_asn = as_path[0]
             border_asn = as_path[-1]
             precedent_asn = original_asn
             for asn in as_path:
-                if asn != "2001": #Cause HE got a default or something weird to this asn 
-                    if asn != original_asn: 
+                if asn != "2001":  # Cause HE got a default or something weird to this asn
+                    if asn != original_asn:
                         g.edge("AS" + asn, "AS" + precedent_asn)
-                        precedent_asn = asn 
-                    if asn == border_asn: 
+                        precedent_asn = asn
+                    if asn == border_asn:
                         g.edge("AS" + lg_asn, "AS" + asn)
                     as_path_count += 1
-        
-        #If empty as_path
-        if as_path_count == 0: 
-            await ctx.send("Pas de route trouvée vers l'IP demandée depuis le route server choisi.")
-            return 
 
-        #Render the graph
+        # If empty as_path
+        if as_path_count == 0:
+            await ctx.send("Pas de route trouvée vers l'IP demandée depuis le route server choisi.")
+            return
+
+        # Render the graph
         g.render()
 
-        #Send it
+        # Send it
         with open('bgpgraph.png', 'rb') as fp:
             await ctx.send(file=discord.File(fp, 'bgpgraph.png'))
 
     """---------------------------------------------------------------------"""
-    
+
     @commands.command(name='git', pass_context=True)
     async def _git(self, ctx):
         """Pour voir mon code"""
         text = "How tu veux voir mon repos Gitea pour me disséquer ? " \
                "Pas de soucis ! Je suis un Bot, je ne ressens pas la " \
                "douleur !\n https://git.gnous.eu/gnouseu/tuxbot-bot"
-        em = discord.Embed(title='Repos TuxBot-Bot', description=text, colour=0xE9D460)
+        em = discord.Embed(title='Repos TuxBot-Bot',
+                           description=text, colour=0xE9D460)
         em.set_author(name='Gnous', icon_url="https://cdn.discordapp.com/"
                                              "icons/280805240977227776/"
                                              "9ba1f756c9d9bfcf27989d0d0abb3862"
