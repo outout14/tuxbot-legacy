@@ -20,7 +20,8 @@ import config
 from cogs.utils import checks
 
 if sys.version_info[1] < 7 or sys.version_info[0] < 3:
-    print(f"{colors.text_colors.RED}[ERROR] Python 3.7 or + is required.{colors.ENDC}")
+    print(
+        f"{colors.text_colors.RED}[ERROR] Python 3.7 or + is required.{colors.ENDC}")
     sys.exit()
 
 l_extensions = (
