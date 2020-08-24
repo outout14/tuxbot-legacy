@@ -58,7 +58,7 @@ class Funs(commands.Cog):
             frbtc = str(btc["EUR"]["last"]).replace(".", ",")
             usbtc = str(btc["USD"]["last"]).replace(".", ",")
             await loading.edit(content=f"Un bitcoin est égal à :"
-            f" {usbtc}$US soit {frbtc}€.")
+                               f" {usbtc}$US soit {frbtc}€.")
 
     """---------------------------------------------------------------------"""
 

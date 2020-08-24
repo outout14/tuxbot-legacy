@@ -10,7 +10,7 @@ class FilterMessages(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        
+
         #
         # These are hard-coded ID that you should change in production to adapt your requirements
         #
@@ -25,8 +25,10 @@ class FilterMessages(commands.Cog):
                 or message.channel.permissions_for(message.author).administrator is True:
             return
 
-        discord_invite_regex = re.compile(r"(discord\.(gg|io|me|li)|discordapp\.com\/invite)\/[0-9A-Za-z]*", re.IGNORECASE)
-        invalid_link_regex = re.compile(r"^(\[[^\]]+\]|<\:[a-z0-9]+\:[0-9]+>) .+ https?:\/\/\S*$", re.IGNORECASE)
+        discord_invite_regex = re.compile(
+            r"(discord\.(gg|io|me|li)|discordapp\.com\/invite)\/[0-9A-Za-z]*", re.IGNORECASE)
+        invalid_link_regex = re.compile(
+            r"^(\[[^\]]+\]|<\:[a-z0-9]+\:[0-9]+>) .+ https?:\/\/\S*$", re.IGNORECASE)
 
         try:
             if message.guild.id in no_pub_guild:
