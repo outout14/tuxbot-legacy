@@ -93,7 +93,7 @@ class Vocal(commands.Cog):
             self.voice.play(discord.FFmpegPCMAudio(filename))
             counter = 0
             duration = self.get_duration(filename)
-            while not counter >= duration:
+            while counter < duration:
                 if self.playing:
                     await loading.edit(
                         content=f"Lecture du message de {self.author.display_name} en cours : {counter}sec/{duration}sec")
