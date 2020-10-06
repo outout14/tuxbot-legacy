@@ -140,7 +140,6 @@ Main tuxbot directory is $na/tuxbot-bot/
 Any question ? => Make an issue on github
 
 https://git.gnous.eu/gnouseu/tuxbot-bot
-https://github.com/outout14/tuxbot-bot
-
+https://github.com/outout14/tuxbot-legacy
 
 """
