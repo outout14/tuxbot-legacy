@@ -46,12 +46,11 @@ class FilterMessages(commands.Cog):
                                   f"car il ne respecte pas la structure "
                                   f"définie. Pour partager un lien veuillez "
                                   f"suivre la structure suivante :"
-                                  f" ` [Sujet] Descirption http(s)://....`")
+                                  f" ` [Sujet] Description http(s)://....`")
                 await author.send("Si vous voulez commenter ou discuter à "
                                   "propos d'un lien ou d'un projet, veuillez "
                                   "le faire dans le channel"
-                                  " `#discussion-des-liens` ou"
-                                  " `#discussion-projets`.")
+                                  " `#reactions`.")
 
             if message.channel.id in sondage_channel:
                 prefix_lenght = len(await self.bot.get_prefix(message))
