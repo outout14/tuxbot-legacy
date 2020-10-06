@@ -10,6 +10,8 @@ This code is not intended to reuse "as is". If you want to configure your own in
 ### Installation
 Install Python dependencies using ``pip3 install -r requirements.txt`` (make sure the pip executable match the correct python version)
 
+You also need to install the ``discord.py`` library : [https://github.com/Rapptz/discord.py](https://github.com/Rapptz/discord.py)
+
 Rename ``config.py.example`` to ``config.py`` and edit it with the required information. 
 You may want to edit the file ``cogs/filter_messages.py`` as well.  
 
