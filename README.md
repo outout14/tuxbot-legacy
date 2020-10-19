@@ -31,4 +31,4 @@ Version list : [Click here to display](https://git.gnous.eu/gnouseu/tuxbot-bot/r
 
 ### Licensing
 
-This project is under the ``Creative Commons BY-NC-SA 4.0`` license - see [LICENSE.md](LICENSE.md) for more details 
+This project is under the ``Creative Commons BY-NC-SA 4.0`` license - see [LICENSE](LICENSE) for more details 
