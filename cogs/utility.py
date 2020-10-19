@@ -255,6 +255,7 @@ class Utility(commands.Cog):
 
         iploading = await ctx.send("_Récupération des informations..._")
 
+        lib_result = True 
         try:
             net = Net(ipaddress)
             obj = IPASN(net)
@@ -263,6 +264,8 @@ class Utility(commands.Cog):
             await ctx.send("Cette IP est reservée à un usage local selon la RFC 1918. Impossible d'avoir des informations supplémentaires à son propos.")
             await iploading.delete()
             return
+        except ipwhois.exceptions.ASNRegistryError:
+            lib_result = False 
 
         try:
             iphostname = socket.gethostbyaddr(ipaddress)[0]
@@ -277,6 +280,7 @@ class Utility(commands.Cog):
             handler = ipinfoio.getHandler(access_token)
             details = handler.getDetails(ipaddress)
         except Exception:
+            print("Can't open ipinfoio.key")
             api_result = False
 
         try:
@@ -287,17 +291,18 @@ class Utility(commands.Cog):
                 asn = details.org.split(" ")[0]
                 embed.add_field(
                     name="Appartient à :", value=f"[{details.org}](https://bgp.he.net/{asn})")
-            else:
+            elif(lib_result):
                 embed.add_field(
                     name="Appartient à :", value=f"{ipinfo['asn_description']} ([AS{ipinfo['asn']}](https://bgp.he.net/{ipinfo['asn']}))", inline=False)
 
-            embed.add_field(
-                name="RIR :", value=f"{ipinfo['asn_registry']}", inline=True)
+            if(lib_result):
+                embed.add_field(
+                    name="RIR :", value=f"{ipinfo['asn_registry']}", inline=True)
 
             if(api_result):
                 embed.add_field(
                     name="Région :", value=f"{details.city} - {details.region} ({details.country})")
-            else:
+            elif(lib_result):
                 embed.add_field(name="Région :",
                                 value=f"{ipinfo['asn_country_code']}")
             embed.add_field(name="Nom de l'hôte :", value=f"{iphostname}")
@@ -306,7 +311,7 @@ class Utility(commands.Cog):
             if(api_result):
                 embed.set_thumbnail(
                     url=f"https://www.countryflags.io/{details.country}/shiny/64.png")
-            else:
+            elif(lib_result):
                 embed.set_thumbnail(
                     url=f"https://www.countryflags.io/{ipinfo['asn_country_code']}/shiny/64.png")
 
