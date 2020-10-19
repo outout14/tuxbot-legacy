@@ -255,7 +255,7 @@ class Utility(commands.Cog):
 
         iploading = await ctx.send("_Récupération des informations..._")
 
-        lib_result = True 
+        lib_result = True
         try:
             net = Net(ipaddress)
             obj = IPASN(net)
@@ -265,7 +265,7 @@ class Utility(commands.Cog):
             await iploading.delete()
             return
         except ipwhois.exceptions.ASNRegistryError:
-            lib_result = False 
+            lib_result = False
 
         try:
             iphostname = socket.gethostbyaddr(ipaddress)[0]
