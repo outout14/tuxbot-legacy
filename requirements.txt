@@ -1,7 +1,7 @@
 pymysql
 gtts
 beautifulsoup4
-lxml==4.2.4
+lxml==4.6.3
 bs4
 pytz
 requests
